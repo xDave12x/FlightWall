@@ -58,7 +58,7 @@ On the Pi:
 
 ```bash
 sudo apt install -y git
-git clone https://github.com/<you>/flightwall.git
+git clone https://github.com/xDave12x/FlightWall.git
 cd flightwall
 bash install.sh
 sudo reboot
