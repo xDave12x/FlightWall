@@ -1,0 +1,8 @@
+# Your personal settings and API tokens - never commit these
+config.toml
+
+.venv/
+__pycache__/
+*.pyc
+flightwall.zip
+.DS_Store

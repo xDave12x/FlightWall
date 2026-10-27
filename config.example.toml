@@ -1,0 +1,57 @@
+# Copy this file to config.toml and fill in the blanks.
+
+[location]
+lat = 38.90            # your home latitude  (right-click your house in Google Maps to copy it)
+lon = -77.04           # your home longitude
+radius_miles = 10      # how far out to look for planes
+
+[display]
+panels = 2                    # set to 1 if only one panel is connected (flights and info take turns)
+switch_seconds = 20           # one-panel mode: time on each screen
+layout = "stacked"            # "stacked" = one panel above the other (planes on top) | "side" = side by side
+brightness = 60               # 1-100
+hardware_mapping = "regular"  # pin layout of the adapter board; try "adafruit-hat" if the panel shows garbage
+gpio_slowdown = 4             # 4 is right for a Pi 4; raise it if you see flicker or sparkles
+rotate = 0                    # 0 / 90 / 180 / 270 if the image comes out sideways or upside down
+# panel_type = "FM6126A"      # uncomment if colors smear, rows double up, or a red haze won't go away
+
+[flights]                     # live data from adsb.fi - free, no account needed
+home_airports = ["IAD", "DCA", "BWI"]   # departures from these can be picked for the map
+top_mode = "auto"             # "auto" = map + overhead planes take turns | "map" | "nearby"
+map_zoom = "fit"              # "fit" zooms to the route | "world" always shows the whole world
+map_seconds = 30              # in auto mode: map time before showing the planes overhead
+rotate_seconds = 6            # time per overhead plane
+departure_scan_nm = 60        # how far from home to look for fresh departures
+refresh_seconds = 15
+max_flights = 5
+min_altitude_ft = 500         # overhead card ignores planes lower than this
+
+[weather]                     # Open-Meteo: free, no key
+units = "fahrenheit"
+refresh_seconds = 600
+
+[tesla]                       # tessie.com -> Settings -> API access token
+tessie_token = ""
+refresh_seconds = 300
+
+[[tesla.cars]]                # white Model 3 (top row)
+vin = ""                      # optional; leave blank to use the order Tessie returns them
+color = [255, 255, 255]
+
+[[tesla.cars]]                # grey Model 3 (bottom row) - dim + slightly blue so it reads as grey on LEDs
+vin = ""
+color = [110, 118, 135]
+
+[canvas]                      # Canvas -> Account -> Settings -> "+ New access token"
+refresh_seconds = 900
+days_ahead = 7
+rotate_seconds = 5            # how long each assignment stays on screen
+hide_graded = false
+
+[[canvas.accounts]]           # GMU - use whatever address your browser shows when you open Canvas
+base_url = "https://canvas.gmu.edu"
+token = ""
+
+[[canvas.accounts]]           # NOVA - same deal, check the address bar
+base_url = "https://learn.vccs.edu"
+token = ""
